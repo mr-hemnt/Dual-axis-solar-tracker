@@ -2,6 +2,8 @@
 
 This project is a dual-axis solar tracker that adjusts the position of a solar panel to maximize its exposure to sunlight using light-dependent resistors (LDRs) and servo motors.
 
+## Tinkercad Link
+-https://www.tinkercad.com/things/fymQKQSO5rh-dual-axis-solar-tracker
 ## Hardware Requirements
 
 - Arduino Uno or similar microcontroller
