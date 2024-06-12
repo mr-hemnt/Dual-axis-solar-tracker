@@ -1,0 +1,47 @@
+#include <Servo.h>
+const int ldrPin1 = A0;
+const int ldrPin2 = A1;
+const int ldrPin3 = A2;
+const int ldrPin4 = A3;
+const int servoPin1 = 9; // Vertical axis
+const int servoPin2 = 10; // Horizontal axis
+Servo servo1;
+Servo servo2;
+
+void setup() {
+  servo1.attach(servoPin1);
+  servo2.attach(servoPin2);
+  servo1.write(90);
+  servo2.write(90);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ldr1 = analogRead(ldrPin1);
+  int ldr2 = analogRead(ldrPin2);
+  int ldr3 = analogRead(ldrPin3);
+  int ldr4 = analogRead(ldrPin4);
+  int avgTop = (ldr1 + ldr2) / 2;
+  int avgBottom = (ldr3 + ldr4) / 2;
+  int avgLeft = (ldr1 + ldr3) / 2;
+  int avgRight = (ldr2 + ldr4) / 2;
+  Serial.print("Top: ");
+  Serial.print(avgTop);
+  Serial.print(" Bottom: ");
+  Serial.print(avgBottom);
+  Serial.print(" Left: ");
+  Serial.print(avgLeft);
+  Serial.print(" Right: ");
+  Serial.println(avgRight);
+  if (avgTop > avgBottom) {
+    servo1.write(servo1.read() + 1);
+  } else if (avgBottom > avgTop) {
+    servo1.write(servo1.read() - 1);
+  }
+  if (avgLeft > avgRight) {
+    servo2.write(servo2.read() + 1);
+  } else if (avgRight > avgLeft) {
+    servo2.write(servo2.read() - 1);
+  }
+  delay(100);
+}
