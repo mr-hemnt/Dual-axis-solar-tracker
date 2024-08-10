@@ -17,3 +17,6 @@ This project is a dual-axis solar tracker that adjusts the position of a solar p
 ## Software Requirements
 
 - Arduino IDE
+
+## Screenshot
+![Screenshot 2024-08-10 120820](https://github.com/user-attachments/assets/059c370a-c3c2-42df-8316-c1ffbddb4a0f)
